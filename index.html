@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Personal Portfolio </title>
+        <style>
+
+            :root 
+            {
+                --bg-gradient: linear-gradient(135deg, #0B0C10 0%, #1a0033 100%);
+                --card-bg: #1F2833;
+                --text-main: #E5E9F0;
+                --text-muted: #C5C6C7;
+                --accent: #66FCF1;
+                --accent-hover: #FF007F;
+                --btn-hover-bg: #82dada;
+                --btn-hover-text: #0B0C10;
+                --border-color: #333;
+            }
+
+            body.light-theme 
+            {
+                --bg-gradient: linear-gradient(135deg, #E2E8F0 0%, #EDF2F7 50%, #F7FAFC 100%);
+                --card-bg: #FFFFFF;
+                --text-main: #1A202C;
+                --text-muted: #4A5568;
+                --accent: #008080;
+                --accent-hover: #E23E57;
+                --btn-hover-bg: #008080;
+                --btn-hover-text: #FFFFFF;
+                --border-color: #E2E8F0;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body
+            {
+                color: var(--text-main);
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                background: var(--bg-gradient);
+            }
+
+            .secondary 
+            {
+                background-color: var(--card-bg);
+                text-align: center;
+                padding: 20px;
+                margin: 20px;
+            }
+
+            a:link
+            {
+                color: var(--accent);
+                text-decoration:none;
+            }
+
+            a:hover
+            {
+                color: var(--accent-hover);
+                text-decoration:none;
+            }
+
+            a:visited
+            {
+                color: var(--accent);
+            }
+
+            .box
+            {
+                padding: 20px;
+                margin: 20px;
+                background-color: var(--card-bg);
+                border-radius: 10px;
+                transition: opacity 0.8s ease, transform 0.8s ease;
+                opacity: 0;
+                transform: translateY(40px);
+                color: var(--text-main)
+            }
+
+            .box.show 
+            {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .box:hover 
+            {
+                transform: translateY(-6px);
+            }
+
+            .btn
+            {
+                color: var(--accent);
+                border: 2px solid var(--accent);
+                border-radius: 20px;
+                cursor: pointer;
+                background-color: transparent;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            .btn:hover {
+                background-color: var(--btn-hover-bg);
+                color: var(--btn-hover-text);
+                border-color: var(--btn-hover-bg);  
+            }
+
+            h1
+            {
+                text-align: center;
+                font-size: 3rem;
+                margin-bottom: 0;
+            }
+
+            h3 
+            {
+                color: var(--accent);
+            }
+
+            nav
+            {
+                position:sticky;
+                top:0px;
+                padding:15px;
+            }
+
+            nav a
+            {
+                margin: 0 15px;
+            }
+
+            html
+            {
+                scroll-behavior: smooth;
+            }
+
+            @media (max-width: 768px) 
+            {
+                nav
+                {
+                text-align: center;
+                }
+
+                .box
+                {
+                    margin: 10px;
+                }
+
+                h1 
+                {
+                    font-size: 2rem;
+                }
+            }
+
+            #typefunction::after 
+            {
+                content: "|";
+                color: var(--accent);
+                animation: blink 0.8s infinite;
+                margin-top: 10px;
+            }
+
+            @keyframes blink 
+            {
+                50% 
+                {
+                    opacity: 0;
+                }
+            }
+
+            .projectcards
+            {
+                padding:20px;
+                color: var(--text-muted);
+                background-color: var(--card-bg);
+                border-radius: 10px;
+                transition: transform 1s ease;
+                flex: 1;
+            }
+
+            .projectcards:hover
+            {
+                transform: translateY(-6px);
+            }
+
+            #projects 
+            {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin: 20px;
+            }
+
+            footer 
+            {
+                margin-top: 50px;
+                padding: 20px;
+                text-align: center;
+                border-top: 1px solid #333;
+            }
+
+            #typefunction
+            {
+                text-align:center;
+                white-space: pre-line;
+            }
+
+            .theme-toggle 
+            {
+                text-align: right;
+            }
+
+            .pos 
+            {
+                position: static;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <nav class="theme-toggle pos">
+            <button id="theme-toggle" class="btn"> Light Mode </button>
+        </nav>
+
+        <section>
+            <h1> Hi! I am Tirth Savani </h1>
+            <h6 id="typefunction"> </h6>
+            <nav class="secondary">
+                <a href="#About"> About  Me</a>
+                <a href="#Skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#Contact">Contact</a>
+            </nav>
+
+        </section>
+
+        <section id="About" class="box">
+            <h3>About Me</h3>
+
+            <p>
+                Hi! I'm <strong>Tirth Savani</strong>, a first-year B.Tech Computer Science
+                student with a passion for building clean, responsive, and interactive web
+                applications.
+            </p>
+
+            <p>
+                I'm currently strengthening my foundation in frontend development by working
+                with <strong>HTML, CSS, and JavaScript</strong>, while also improving my
+                problem-solving skills through <strong>Data Structures & Algorithms (DSA)</strong>
+                and <strong>Object-Oriented Programming (OOP)</strong>.
+            </p>
+
+            <p>
+                Looking ahead, I aspire to build a career in
+                <strong>Artificial Intelligence and Machine Learning</strong>. I'm excited
+                about creating impactful software, continuously learning new technologies,
+                and taking on challenging projects that help me grow as a developer.
+            </p>
+        </section>
+
+        <section id="Skills" class="box">
+            <h3> Skills </h3>
+                <p>Languages: </p>
+                <ul>
+                    <li> C (Programming language)</li>
+                    <li> C ++ </li>
+                    <li> JavaScript </li>
+                </ul>
+
+                <p> Web: </p>
+                <ul>
+                    <li> HTML </li>
+                    <li> CSS </li>
+                </ul>
+
+                <p> CS Fundamentals </p>
+                <ul>
+                    <li> DSA </li>
+                    <li> OOP </li>
+                </ul>
+        </section>
+
+        <section  class="box">
+            <h3> Projects </h3>
+        </section>
+
+        <div id="projects">
+            <article class="projectcards box">
+                <h3> Guess the number </h3>
+                <p>Terminal-based game where the player
+                    guesses a random number generated by
+                    the computer.</p>
+
+                <h5> Tech: </h5>
+                <ul>
+                    <li> C </li>
+                </ul>
+            </article>
+
+            <article class="projectcards box">
+                <h3> Rock, Paper & Scissors </h3>
+                <p>A command-line implementation of the
+                    classic game against the computer.</p>
+
+                <h5> Tech: </h5>
+                <ul>
+                    <li> C </li>
+                </ul>
+            </article>
+        
+            <article class="projectcards box">
+                <h3> Snakes & Ladders </h3>
+                <p>Terminal-based game where the computer
+                    generates a random number and the player
+                    proceeds accordingly
+                </p>
+
+                <h5> Tech: </h5>
+                <ul>
+                    <li> C </li>
+                </ul>
+            </article>
+
+            <article class="projectcards box">
+                <h3> Portfolio </h3>
+                <p>Responsive portfolio website featuring
+                    animations, smooth scrolling, and a
+                    typing effect.
+
+                </p>
+
+                <h5> Tech: </h5>
+                <ul>
+                    <li> HTML </li>
+                    <li> CSS </li>
+                    <li> JavaScript </li>
+                </ul>
+            </article>
+        </div>
+
+        <section id="Contact" class="box">
+            <h3> Contact </h3>
+            <h4> Let's connect </h4>
+            <p> Email: tirthsavani29@gmail.com</p> 
+            <p> LinkedIn: <a href="https://www.linkedin.com/in/tirth-savani-cse/"> Profile </a></p>    
+        </section>
+
+        <script>
+            const boxes = document.querySelectorAll(".box");
+
+            const observer = new IntersectionObserver((entries) => 
+            {
+                entries.forEach((entry) => 
+                {
+                    if (entry.isIntersecting)
+                    {
+                        entry.target.classList.add("show")
+                    }
+                });
+            });
+                        
+            boxes.forEach((box) => {
+                observer.observe(box);
+            });
+
+            let txt =`Computer Science Student • Frontend Developer • Aspiring AI/ML Engineer 
+            I build responsive web applications and
+            interactive web applications with 
+            HTML, CSS and JavaScript`;
+            
+            let i = 0;
+            const element = document.getElementById("typefunction");
+            const timer = setInterval(() => 
+            {
+                element.innerHTML = txt.substring(0, i);
+                i++;
+
+                if (i > txt.length)
+                {
+                    clearInterval(timer);
+                }
+            }, 50);
+
+            const button = document.getElementById("theme-toggle");
+
+            button.addEventListener("click", () => 
+            {
+                document.body.classList.toggle("light-theme");
+                if (document.body.classList.contains("light-theme")) 
+                {
+                    button.textContent = "Dark Mode";
+                }
+                else 
+                {
+                    button.textContent = "Light Mode";
+                }
+            });
+        </script>
+
+        <footer>
+            <p>© 2026 Tirth Savani</p>
+            <p>Made with HTML, CSS &amp; JavaScript</p>
+        </footer>
+    </body>
+</html>
